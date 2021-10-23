@@ -13,8 +13,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.example.utils.FileGenerator;
+import org.example.utils.FileUtil;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  *
@@ -77,7 +80,7 @@ public class Compare extends Application {
 
         filePath.setOnAction(
                 (final ActionEvent e) -> {
-                    fileChooser.setInitialDirectory(new File("D:\\java\\Learn\\Homework\\Arithmetic"));
+                    //fileChooser.setInitialDirectory(new File("D:\\java\\Learn\\Homework\\Arithmetic"));
                     File file = fileChooser.showOpenDialog(primaryStage);
                     if (file!=null)
                         fromFile.setText(file.getAbsolutePath());
@@ -87,7 +90,14 @@ public class Compare extends Application {
                 (final ActionEvent e) -> {
                     String text = fromFile.getText();
 
+                    ArrayList<String> strings = FileUtil.readFile(text);
+                    ArrayList<String> strings1 = FileUtil.readFile("D:\\answer.txt");
 
+                    FileUtil.compare(strings,strings1);
+                    primaryStage.setTitle("检查完成，请自行前往查看");
+                    primaryStage.close();
+                    Main main = new Main();
+                    main.start(primaryStage);
                 });
 
 

@@ -18,6 +18,8 @@ import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.example.utils.ComplexFormulaGenerator;
+import org.example.utils.ComplexFormulaGenerator.*;
 
 /**
  *
@@ -93,6 +95,8 @@ public class Main extends Application{
                 (final ActionEvent e) -> {
                     String textTopicsNumberText=textTopicsNumber.getText();                   //获取文本上的内容
                     String textDigitalRangeText=textDigitalRange.getText();
+
+                    ComplexFormulaGenerator.generate(textTopicsNumberText,textDigitalRangeText);
 
                     //闪动的画面
                     FadeTransition fade = new FadeTransition();

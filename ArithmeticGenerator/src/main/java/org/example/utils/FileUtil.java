@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-
 /**
  *
  * @author Crystry
@@ -29,7 +28,7 @@ public class FileUtil {
             while (s.hasNext()) {
                 String de = s.next();
                 String[] string = de.split("、");
-                System.out.println(string[1]);
+                //System.out.println(string[1]);
                 arrayList.add(string[1]);
             }
         } catch (FileNotFoundException e) {
@@ -56,7 +55,7 @@ public class FileUtil {
         }
         String string = "Correct: " + correctList.size() + " " + Arrays.toString(correctList.toArray()).replace("[", "(").replace("]", ")") + "\n";
         string += "Wrong: " + wrongList.size() + " " + Arrays.toString(wrongList.toArray()).replace("[", "(").replace("]", ")");
-        fileWriter(string, "ArithmeticGenerator/grade.txt");
+        fileWriter(string, "D://grade.txt");
     }
 
     /**

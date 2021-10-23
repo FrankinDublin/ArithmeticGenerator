@@ -26,7 +26,17 @@ public class ComplexFormulaGenerator {
         long end = System.currentTimeMillis();
         System.out.println("生成完毕，耗时："+(end-start)+"毫秒");
     }
-    
+    public static void generate(String count,String range){
+        int c = Integer.parseInt(count);
+        int r = Integer.parseInt(range);
+        numCapacity = r;
+        for(int i=1;i<=c;i++){
+            AnswerV2 generated = complicatedGenerate();
+            while(generated==null) generated=complicatedGenerate();
+            FileGenerator.writeExpression(i+"、"+generated.getExpression()+" =\n");
+            FileGenerator.writeAnswer(i+"、"+generated.getResult()+"\n");
+        }
+    }
     public static AnswerV2 complicatedGenerate(){
         GenerateHelper g = new GenerateHelper();
         char mark = markSet[g.getMarkType()];
