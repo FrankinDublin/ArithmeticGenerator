@@ -108,7 +108,9 @@ public class Main extends Application{
 
 
         check.setOnAction(actionEvent -> {
-
+            primaryStage.close();
+            Compare compare = new Compare();
+            compare.start(primaryStage);
         });
 
     }
